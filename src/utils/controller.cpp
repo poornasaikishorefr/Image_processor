@@ -7,6 +7,7 @@
 #include "sharpening.h"
 #include "MyFilter.h"
 #include "blur.h"
+#include "rotate.h"
 #include <memory>
 
 std::vector<std::shared_ptr<Filter>> CreateFilters(const std::vector<FilterParsed>& filters_parsed) {
@@ -49,6 +50,12 @@ std::vector<std::shared_ptr<Filter>> CreateFilters(const std::vector<FilterParse
         if( parsed.name == "blur") {
             filters.push_back(std::make_shared<Blur>());
         }
+        else if (parsed.name == "rotate") {
+
+    int angle = std::stoi(parsed.args[0]);
+
+    filters.push_back(std::make_shared<Rotate>(angle));
+}
         
     }
     return filters;

@@ -26,6 +26,7 @@ ParserWords Parse(int argc, char** argv) {
     filter.name != "sharp" &&
     filter.name != "edge" &&
     filter.name != "blur" &&
+    filter.name != "rotate" &&
     filter.name != "mine") {
 
     throw std::runtime_error("Unknown filter: " + filter.name);
