@@ -126,7 +126,7 @@ Each pixel becomes the **average of its neighboring pixels**, which smooths the 
 
 Example: -blur
 
-![Applied Blur filter](image-1.png)
+![Applied Blur filter](blur.png)
 
 
 
@@ -146,7 +146,7 @@ Example:
 
 This rotates the image **90 degrees clockwise**.
 
-
+![Applied Rotated](rotate.png)
 
 
 
