@@ -146,8 +146,7 @@ Example:
 
 This rotates the image **90 degrees clockwise**.
 
-![Applied Rotate filter image
-](image.png)
+
 
 
 
