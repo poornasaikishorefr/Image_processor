@@ -116,5 +116,155 @@ Example: -mine
 ![image](https://user-images.githubusercontent.com/129896942/230489475-488db054-047f-48ff-9af9-777196426cf8.png)
 
 
+---
+
+### Blur (-blur)
+
+Applies a blur effect to the image.
+
+Each pixel becomes the **average of its neighboring pixels**, which smooths the image and reduces sharp transitions.
+
+Example: -blur
+
+![Applied Blur filter](blur.png)
+
+
+
+### Rotate (-rotate angle)
+
+Rotates the image by a specified angle.
+
+Supported angles:
+
+-rotate 90  
+-rotate 180  
+-rotate 270  
+
+Example:
+
+-rotate 90
+
+This rotates the image **90 degrees clockwise**.
+
+![Applied Rotated](rotate.png)
+
+
+
+### Automatic Output Preview
+
+After the program finishes processing the image, the generated output image is **automatically opened** using the system image viewer.
+
+Example:
+
+`./image_processor input.bmp output.bmp -gs`
+
+Steps performed:
+
+1. The input image is read.
+2. Filters are applied in the specified order.
+3. The output image is saved.
+4. The output image is automatically opened for preview.
+
+
+
+### Example Filter Pipeline
+
+Multiple filters can be combined and applied sequentially.
+
+Example:
+
+`./image_processor input.bmp output.bmp -blur -gs -rotate 180`
+
+Processing order:
+
+Input Image  
+↓  
+Blur  
+↓  
+Grayscale  
+↓  
+Rotate  
+↓  
+Output Image
+
+
+
+## Project Structure
+
+After improvements, the project is organized into modules.
+
+src/
+├ core
+│ image.cpp
+│ image.h
+│ color.h
+│
+├ filters
+│ grayscale.cpp
+│ negative.cpp
+│ blur.cpp
+│ crop.cpp
+│ edge_detection.cpp
+│ rotate.cpp
+│
+├ io
+│ read_image.cpp
+│ write_image.cpp
+│
+├ utils
+│ parser.cpp
+│ controller.cpp
+│
+└ main
+image_processor.cpp
+
+
+### Module Responsibilities
+
+core  
+Contains image and color data structures.
+
+filters  
+Contains all image transformation algorithms.
+
+io  
+Responsible for reading and writing BMP images.
+
+utils  
+Handles command-line parsing and filter management.
+
+main  
+Program entry point that coordinates the whole pipeline.
+
+
+
+## Build Instructions
+
+Compile the project using:
+
+g++ src/*/*.cpp -I src/core -I src/filters -I src/io -I src/utils -o image_processor
+
+Run the program using:
+
+
+./image_processor input.bmp output.bmp -gs
+
+
+
+
+## Improvements Implemented
+
+The following improvements were added to the project:
+
+- Modular project structure
+- Removal of magic numbers using constants
+- Optimized filter processing
+- Improved error handling
+- Input validation
+- Blur filter implementation
+- Rotate filter implementation
+- Automatic output preview
+
+These improvements make the project **more maintainable, extensible, and user-friendly**.
 
 
